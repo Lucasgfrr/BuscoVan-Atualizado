@@ -1,7 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:projeto_final/telalogin.dart';
+import 'package:projeto_final/NovasRotas/pesquisa.dart';
+import 'package:projeto_final/NovasRotas/telalogin.dart';
 
-import '../cadastros/telacadastroaluno.dart';
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
 
@@ -12,9 +13,32 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   bool isLogin = true;
   @override
-  Widget build(BuildContext context) => isLogin
-      ? LoginWidget(onClickedSignUp: toggle)
-      : SignUpWidget(onClickedSignIn: toggle);
+  Widget build(BuildContext context) =>
+      isLogin ? LoginWidget(onClickedSignUp: toggle) : Pesquisa();
 
-  void toggle() => setState(() => isLogin = !isLogin );
+  void toggle() => setState(() => isLogin = !isLogin);
+}
+
+userAlunoRegister(
+  BuildContext context, {
+  required email,
+  required password,
+}) async {
+  await FirebaseAuth.instance
+      .createUserWithEmailAndPassword(email: email, password: password)
+      .then(
+        (value) => Navigator.of(context).pushReplacementNamed('/'),
+      );
+}
+
+userMotoristaRegister(
+  BuildContext context, {
+  required email,
+  required password,
+}) async {
+  await FirebaseAuth.instance
+      .createUserWithEmailAndPassword(email: email, password: password)
+      .then(
+        (value) => Navigator.of(context).pushReplacementNamed('/'),
+      );
 }

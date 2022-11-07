@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "907063887263",
-    "project_id": "bd-buscovan",
-    "storage_bucket": "bd-buscovan.appspot.com"
+    "project_number": "157514037589",
+    "project_id": "dbnovembro",
+    "storage_bucket": "dbnovembro.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:907063887263:android:4c7a03fd849f0540e829aa",
+        "mobilesdk_app_id": "1:157514037589:android:65755ab0382dd5c42d97dc",
         "android_client_info": {
-          "package_name": "com.example.projeto_final"
+          "package_name": "dbnovembro.projeto_final"
         }
       },
       "oauth_client": [
         {
-          "client_id": "907063887263-9vdq98a6a09gn8msrbf0062hilverb09.apps.googleusercontent.com",
+          "client_id": "157514037589-sn574l4cs9p53tv7mbspejabng20r788.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCv5mJGaKjI5KXYrV4t4-1S4oGruEfF0us"
+          "current_key": "AIzaSyBIrZ_LsxkXI8ksYY2c4L6QskMb49XYn7M"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "907063887263-9vdq98a6a09gn8msrbf0062hilverb09.apps.googleusercontent.com",
+              "client_id": "157514037589-sn574l4cs9p53tv7mbspejabng20r788.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

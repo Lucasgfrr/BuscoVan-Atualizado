@@ -4,15 +4,9 @@ import 'package:lottie/lottie.dart';
 import 'package:projeto_final/widgets/widgetsGeral.dart';
 import 'package:uuid/uuid.dart';
 
-class MotoristaCadastro extends StatefulWidget {
-  MotoristaCadastro({super.key});
+class AlunoCadastro extends StatelessWidget {
+  AlunoCadastro({super.key});
 
-  @override
-  State<MotoristaCadastro> createState() => _MotoristaCadastroState();
-}
-
-class _MotoristaCadastroState extends State<MotoristaCadastro> {
-  // instancia do firebase
   FirebaseFirestore db = FirebaseFirestore.instance;
 
   TextEditingController _nomeController = TextEditingController();
@@ -25,10 +19,11 @@ class _MotoristaCadastroState extends State<MotoristaCadastro> {
 
   List<String> listNames = [];
 
+  BuildContext get contexte => contexte;
+
   void initState() {
     //Atualização Inicial
     //Atualização em Tempo real
-    super.initState();
   }
 
   bool passwordConfirmed() {
@@ -43,8 +38,8 @@ class _MotoristaCadastroState extends State<MotoristaCadastro> {
   @override
   Widget build(BuildContext context) {
     //FIREBASE
-    final CollectionReference motorista =
-        FirebaseFirestore.instance.collection('motorista');
+    final CollectionReference _alunos =
+        FirebaseFirestore.instance.collection('alunos');
 
     return Scaffold(
       body: Container(
@@ -61,16 +56,16 @@ class _MotoristaCadastroState extends State<MotoristaCadastro> {
                   child: Container(
                     width: 250,
                     child: Lottie.asset(
-                      'lottie/122456-driver-steering-wheel-car-map-road-location-marker-sign-preloader.json',
+                      'lottie/5450-my-children.json',
                       animate: true,
                     ),
                   ),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 60,
                 ),
                 const Text(
-                  'Cadastrar Motorista',
+                  'Cadastrar Aluno',
                   textScaleFactor: 2.5,
                 ),
                 textFormField(
@@ -101,6 +96,15 @@ class _MotoristaCadastroState extends State<MotoristaCadastro> {
                   height: 8,
                 ),
                 textFormField(
+                    controller: _numeroCelController,
+                    labletext: 'Celular',
+                    obscureText: false,
+                    textInputAction: TextInputAction.next,
+                    keyboardType: TextInputType.text),
+                const SizedBox(
+                  height: 8,
+                ),
+                textFormField(
                     controller: _emailController,
                     labletext: 'Email',
                     obscureText: false,
@@ -110,38 +114,25 @@ class _MotoristaCadastroState extends State<MotoristaCadastro> {
                   height: 8,
                 ),
                 textFormField(
-                    controller: _numeroCelController,
-                    labletext: 'Contato',
-                    obscureText: false,
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress),
+                  controller: _passwordController,
+                  labletext: 'Senha',
+                  obscureText: true,
+                  textInputAction: TextInputAction.done,
+                ),
                 const SizedBox(
                   height: 8,
                 ),
-                Form(
-                  child: Column(
-                    children: [
-                      textFormField(
-                        controller: _passwordController,
-                        labletext: 'Senha',
-                        obscureText: true,
-                        textInputAction: TextInputAction.done,
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      textFormField(
-                          controller: _confirmPasswordController,
-                          labletext: 'Confirmar Senha',
-                          obscureText: true,
-                          textInputAction: TextInputAction.done),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      materialButton(
-                          onPressed: () => sendData(), text: 'Cadastrar')
-                    ],
-                  ),
+                textFormField(
+                    controller: _confirmPasswordController,
+                    labletext: 'Confirmar Senha',
+                    obscureText: true,
+                    textInputAction: TextInputAction.done),
+                const SizedBox(
+                  height: 8,
+                ),
+                materialButton(
+                  onPressed: () => sendData(),
+                  text: 'Cadastrar',
                 ),
                 const SizedBox(
                   height: 8,
@@ -157,7 +148,7 @@ class _MotoristaCadastroState extends State<MotoristaCadastro> {
   void sendData() {
     //Gerar ID
     String id = Uuid().v1();
-    db.collection('motorista').doc(id).set(
+    db.collection('alunos').doc(id).set(
       {
         'nome': _nomeController.text,
         'ultimoNome': _ultimo_nomeController.text,
@@ -176,11 +167,10 @@ class _MotoristaCadastroState extends State<MotoristaCadastro> {
     _numeroCelController.text = '';
     _passwordController.text = '';
     _confirmPasswordController.text = '';
-    ScaffoldMessenger.of(context).showSnackBar(
+    ScaffoldMessenger.of(contexte).showSnackBar(
       SnackBar(
-        content: Text("Salvo com Sucesso"),
+        content: Text('Salvo com Sucesso'),
       ),
     );
-    Navigator.of(context).pushNamed('/cadastroRotas');
   }
 }
