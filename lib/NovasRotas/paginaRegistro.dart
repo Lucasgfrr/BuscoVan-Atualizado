@@ -43,6 +43,14 @@ class RegisterPage extends StatelessWidget {
                     Navigator.of(context).pushNamed('/motorista');
                   },
                   text: 'Motorista'),
+              const SizedBox(
+                height: 8,
+              ),
+              materialButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/cadastroRotas');
+                  },
+                  text: 'Rotas'),
             ],
           ),
         ),

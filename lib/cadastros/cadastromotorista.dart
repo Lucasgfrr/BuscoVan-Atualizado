@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_final_fields, non_constant_identifier_names, unused_local_variable, sized_box_for_whitespace, prefer_const_constructors
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -25,6 +27,7 @@ class _MotoristaCadastroState extends State<MotoristaCadastro> {
 
   List<String> listNames = [];
 
+  @override
   void initState() {
     //Atualização Inicial
     //Atualização em Tempo real

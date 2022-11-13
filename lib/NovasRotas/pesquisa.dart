@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:projeto_final/NovasRotas/telalogin.dart';
+import 'package:projeto_final/widgets/widgetsGeral.dart';
 
 class Pesquisa extends StatefulWidget {
   const Pesquisa({super.key});

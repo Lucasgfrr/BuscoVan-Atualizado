@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, must_be_immutable, prefer_final_fields, non_constant_identifier_names, recursive_getters, unused_local_variable, no_leading_underscores_for_local_identifiers, sized_box_for_whitespace, prefer_const_constructors
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -19,7 +21,7 @@ class AlunoCadastro extends StatelessWidget {
 
   List<String> listNames = [];
 
-  BuildContext get contexte => contexte;
+  BuildContext get context => context;
 
   void initState() {
     //Atualização Inicial
@@ -167,8 +169,8 @@ class AlunoCadastro extends StatelessWidget {
     _numeroCelController.text = '';
     _passwordController.text = '';
     _confirmPasswordController.text = '';
-    ScaffoldMessenger.of(contexte).showSnackBar(
-      SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
         content: Text('Salvo com Sucesso'),
       ),
     );

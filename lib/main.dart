@@ -9,7 +9,6 @@ import 'package:projeto_final/cadastros/CadastroMotorista.dart';
 import 'package:projeto_final/cadastros/CadastroRotas.dart';
 import 'package:projeto_final/telamenu.dart';
 import 'BD/authpage.dart';
-import 'NAO UTILIZA/telaperfil1.dart';
 import 'NovasRotas/paginaRegistro.dart';
 import 'NovasRotas/pesquisa.dart';
 

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -40,8 +41,9 @@ class _LoginWidgetState extends State<LoginWidget>
     super.dispose();
   }
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final _formkey = GlobalKey<FormState>();
+  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,25 +126,25 @@ class _LoginWidgetState extends State<LoginWidget>
       ),
     );
   }
-}
 
-materialButton({required onPressed, required text}) {
-  return Material(
-    elevation: 2,
-    shadowColor: Colors.black,
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(5.0),
-    child: MaterialButton(
-      onPressed: onPressed,
-      color: Colors.teal,
-      minWidth: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Text(
-          text,
-          textScaleFactor: 1.2,
+  materialButton({required onPressed, required text}) {
+    return Material(
+      elevation: 2,
+      shadowColor: Colors.black,
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(5.0),
+      child: MaterialButton(
+        onPressed: onPressed,
+        color: Colors.teal,
+        minWidth: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            text,
+            textScaleFactor: 1.2,
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

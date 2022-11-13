@@ -17,6 +17,8 @@ class _CadastroRotasState extends State<CadastroRotas> {
   // instancia do firebase
   FirebaseFirestore db = FirebaseFirestore.instance;
 
+  TextEditingController _nomeCompletoController = TextEditingController();
+  TextEditingController _telefoneController = TextEditingController();
   TextEditingController _pontoAController = TextEditingController();
   TextEditingController _pontoBController = TextEditingController();
 
@@ -53,6 +55,26 @@ class _CadastroRotasState extends State<CadastroRotas> {
                   textScaleFactor: 2.5,
                 ),
                 textFormField(
+                  controller: _nomeCompletoController,
+                  labletext: 'Nome Completo',
+                  obscureText: false,
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.text,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                textFormField(
+                  controller: _telefoneController,
+                  labletext: 'Contato',
+                  obscureText: false,
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.text,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                textFormField(
                   controller: _pontoAController,
                   labletext: 'Ponto A',
                   obscureText: false,
@@ -84,14 +106,23 @@ class _CadastroRotasState extends State<CadastroRotas> {
   void sendData() {
     //Gerar ID
     String id = Uuid().v1();
-    db.collection('motorista').doc(id).collection('rotas');
+    db.collection('rotas').doc(id).set(
+      {
+        'nomeCompleto': _nomeCompletoController.text,
+        'Telefone': _telefoneController.text,
+        'Rota A': _pontoAController.text,
+        'Rota B': _pontoBController.text,
+      },
+    );
 
     //feedback visual
+    _nomeCompletoController.text = '';
+    _telefoneController.text = '';
     _pontoAController.text = '';
     _pontoBController.text = '';
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("Inserido com Sucesso"),
+        content: Text('Salvo com Sucesso'),
       ),
     );
   }
